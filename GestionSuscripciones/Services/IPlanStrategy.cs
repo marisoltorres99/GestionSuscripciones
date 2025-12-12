@@ -2,6 +2,6 @@
 {
     public interface IPlanStrategy
     {
-
+        decimal CalcularTotal(int minutosConsumidos);
     }
 }

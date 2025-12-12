@@ -10,6 +10,17 @@ public class Program
         var usuarios = cargar.CargarUsuarios();
 
         var factService = new CalcularFacturacionService();
-        factService.ObtenerActividadesAgrupadas(actividades, usuarios);
+        var actividadesAgrupadas = factService.ObtenerActividadesAgrupadas(actividades, usuarios);
+
+        foreach (var item in actividadesAgrupadas)
+        {
+            Console.WriteLine("----- Usuario -----");
+            Console.WriteLine($"Nombre: {item.NombreUsuario}");
+            Console.WriteLine($"Email: {item.Email}");
+            Console.WriteLine($"Tipo: {item.Tipo}");
+            Console.WriteLine($"Total Minutos del Mes: {item.TotalMinutosDelMesActual}");
+            Console.WriteLine($"Total Facturado: ${item.TotalFacturado}");
+            Console.WriteLine();
+        }
     }
 }
